@@ -1,0 +1,33 @@
+{
+  "name": "slozhno-sosredotochitsya-fd",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/elyuzik/slozhno-sosredotochitsya-fd#readme",
+  "bugs": {
+    "url": "https://github.com/elyuzik/slozhno-sosredotochitsya-fd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elyuzik/slozhno-sosredotochitsya-fd.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "prettier --check \"./**/*.{html,css,js}\"",
+    "format": "prettier --write \"./**/*.{html,css,js}\"",
+    "lint": "stylelint \"**/*.css\"",
+    "lintfix": "stylelint \"**/*.css\" --fix",
+    "checkAll": "npm run check && npm run lint",
+    "fixAll": "npm run format && npm run lintfix"
+  },
+  "dependencies": {
+    "prettier": "^3.9.10",
+    "stylelint": "^18.0.0"
+  },
+  "devDependencies": {
+    "@stylistic/stylelint-plugin": "^6.0.0"
+  }
+}
