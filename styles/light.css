@@ -19,7 +19,7 @@
   --decor-color: #353430;
   --title-text-paragraph: #353430;
   --bg-paragraph-color: #ff8dcb;
-  --btn-hover-color: rgb(53 52 48 / 0.4)
+  --btn-hover-color: rgb(53 52 48 / 0.4);
 }
 
 :root.theme-light .decor_rec {
