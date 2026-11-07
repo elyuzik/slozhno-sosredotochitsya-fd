@@ -7,7 +7,7 @@
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  font-family: var(--font-ibm, 'IBM Plex mono', sans-serif);
+  font-family: var(--font-ibm, 'IBM Plex Mono', monospace);
   font-size: var(--text-size, 18px);
   line-height: var(--text-line-height, 1.3);
   color: var(--text-color, #f1b2ce);
@@ -62,12 +62,6 @@
   color: var(--decor-color, #ff0070);
 }
 
-@media (prefers-color-scheme: light) {
-  .decor_rec {
-    display: none;
-  }
-}
-
 .decor_rec::after {
   content: '';
   display: block;
@@ -104,10 +98,12 @@
   padding-inline: 0;
   text-transform: lowercase;
   line-height: 18px;
+  outline: 1px solid transparent;
+  transition: outline-color 0.2s ease-in-out;
 }
 
 .header__theme-menu-button:hover {
-  outline: 1px solid var(--btn-hover-color, rgb(255 0 112 / 0.4));
+  outline-color: var(--btn-hover-color, rgb(255 0 112 / 0.4));
 }
 
 .header__theme-menu-button:focus {
@@ -211,11 +207,13 @@
 .card__link {
   color: inherit;
   text-decoration: none;
+  border-block-end: 1px solid transparent;
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  transition: border-block-end-color 0.2s ease-in-out;
 }
 
 .card__link:hover {
-  border-block-end: 1px solid currentColor;
+  border-block-end-color: currentColor;
 }
 
 .card__link:focus {
@@ -241,29 +239,10 @@
 .gallery__image {
   display: block;
   inline-size: 100%;
+  block-size: auto;
   max-inline-size: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.gallery__image_sunset {
-  aspect-ratio: 355 / 142;
-}
-
-.gallery__image_ice-cream {
-  aspect-ratio: 1;
-}
-
-.gallery__image_tape {
-  aspect-ratio: 355 / 237;
-}
-
-.gallery__image_books {
-  aspect-ratio: 1;
-}
-
-.gallery__image_street {
-  aspect-ratio: 355 / 237;
 }
 
 /* Футер */
@@ -278,6 +257,11 @@
 /* Планшет */
 
 @media (min-width: 768px) {
+  .header__title,
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
   .decorated-zone {
     padding: 20px;
   }
@@ -337,13 +321,11 @@
       'sunset sunset ice'
       'tape books ice'
       'tape street street';
-    grid-template-rows: 192px 230px 318px;
     gap: 20px;
   }
 
   .gallery__image {
-    aspect-ratio: auto;
-    block-size: 100%;
+    align-self: stretch;
   }
 
   .gallery__image_sunset {
@@ -379,11 +361,6 @@
     flex-direction: row;
   }
 
-  .header__title,
-  .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
   .header__subtitle {
     max-inline-size: 491px;
   }
@@ -399,9 +376,5 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: start;
     gap: var(--content-spacing, 20px);
-  }
-
-  .gallery {
-    grid-template-rows: 260px 315px 433px;
   }
 }

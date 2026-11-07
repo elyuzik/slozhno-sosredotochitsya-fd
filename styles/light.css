@@ -1,7 +1,7 @@
 /*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
+  Светлая тема.
+  Принудительные значения для класса .theme-light
+  и значения для автоматической светлой темы через prefers-color-scheme.
 */
 
 :root.theme-light {
@@ -24,4 +24,25 @@
 
 :root.theme-light .decor_rec {
   display: none;
+}
+
+/* Автоматическая светлая тема */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-image: url(../images/cover-image-light.png);
+    --bg-color: #fff1f7;
+    --text-color: #353430;
+    --title-color: #ffc2e6;
+    --accent-color: #ff8dcb;
+    --btn-color: #353430;
+    --decor-color: #353430;
+    --title-text-paragraph: #353430;
+    --bg-paragraph-color: #ff8dcb;
+    --btn-hover-color: rgb(53 52 48 / 0.4);
+  }
+
+  .decor_rec {
+    display: none;
+  }
 }
